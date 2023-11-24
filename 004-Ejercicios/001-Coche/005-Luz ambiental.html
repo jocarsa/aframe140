@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo A-frame</title>
+        <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene background="color: black"  shadow="type: pcfsoft">
+            <a-assets>
+                <a-asset-item id="coche" src="coche.glb"></a-asset-item>
+            </a-assets>
+            <a-entity gltf-model="#coche" position="0 0 -5" shadow="receive: true;cast:true;"></a-entity>
+            <a-entity light="
+                             type: spot; 
+                             color: #ffffff;
+                             angle:70;
+                             penumbra:0.5;
+                             castShadow: true;
+                             shadowCameraVisible: true;
+                             " 
+                      position="-3.734 2.793 -9.254" rotation="-90 0 0"></a-entity>
+            <a-entity light="type: ambient; color: rgb(2,2,2)"></a-entity>
+        </a-scene>
+    </body>
+</html>

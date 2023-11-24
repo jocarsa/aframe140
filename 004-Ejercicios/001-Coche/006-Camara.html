@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <title>Aprendiendo A-frame</title>
+        <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene background="color: black"  shadow="type: pcfsoft">
+            <a-assets>
+                <a-asset-item id="coche" src="coche.glb"></a-asset-item>
+            </a-assets>
+            <a-entity gltf-model="#coche" position="0 0 -5" shadow="receive: true;cast:true;"></a-entity>
+            <a-entity light="
+                             type: spot; 
+                             color: #ffffff;
+                             angle:70;
+                             penumbra:0.5;
+                             castShadow: true;
+                             shadowCameraVisible: true;
+                             " 
+                      position="-3.734 2.793 -9.254" rotation="-90 0 0"></a-entity>
+            <a-entity light="type: ambient; color: rgb(2,2,2)"></a-entity>
+          
+            <a-entity camera look-controls wasd-controls position="0 1.8 1"></a-entity>
+
+           
+            <a-entity
+              id="leftController"
+              oculus-touch-controls="hand: left"
+              laser-controls="hand: left"
+              raycaster="objects: .clickable"
+              line="color: red"
+              teleport-controls="cameraRig: #cameraRig; button: grip; collisionEntities: #model, #ground"
+            ></a-entity>
+
+            <a-entity
+              id="rightController"
+              oculus-touch-controls="hand: right"
+              laser-controls="hand: right"
+              raycaster="objects: .clickable"
+              line="color: blue"
+            ></a-entity>
+
+            
+            <a-entity id="cameraRig" position="0 0 0">
+              <a-entity id="head" camera look-controls></a-entity>
+            </a-entity>
+        </a-scene>
+    </body>
+</html>
